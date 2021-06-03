@@ -39,6 +39,15 @@ const ShortUrlGenerateForm = () => {
       });
   };
 
+  const onShortUrlClick = (e) => {
+    const shortUrlEl = e.target;
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(shortUrlEl);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  };
+
   return (
     <div className="shorturl-form-wrapper">
       <div className="card">
@@ -60,7 +69,9 @@ const ShortUrlGenerateForm = () => {
         {shortUrlData && (
           <div className="short-url-wrapper">
             <h4>Short URL</h4>
-            <span id="short-url-text">{`${AppConstants.WEBSITE_HOST_ADDRESS}${shortUrlData.shortId}`}</span>
+            <span
+              onClick={onShortUrlClick}
+            >{`${AppConstants.WEBSITE_HOST_ADDRESS}${shortUrlData.shortId}`}</span>
           </div>
         )}
       </div>

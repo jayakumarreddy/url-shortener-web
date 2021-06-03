@@ -1,4 +1,3 @@
-import { Card, Button } from "react-bootstrap";
 import AppLayout from "./AppLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
